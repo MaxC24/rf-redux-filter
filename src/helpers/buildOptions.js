@@ -15,19 +15,18 @@ function accumulate(collection, value) {
 }
 
 export function getFrequencyOfUniqueValues(attribute, items) {
-    return valueMap(attribute, items, (prev, currentVal) => {
-        if (currentVal === undefined)
-            return prev;
 
-        if (currentVal instanceof Array) {
-            currentVal.forEach(val => {
-                prev = accumulate(prev, val);
-            });
-        } else {
-            prev = accumulate(prev, currentVal);
-        }
-        return prev;
-    });
+    let options = {};
+    function createOptionsRecursive(attribute, items, options){
+        items.forEach(item => {
+            let value = item[attribute];
+            options[value] = options[value] || 0;
+            if(Array.isArray(value)) createOptionsRecursive(attribute, value, options)
+            else if(value) options[value]++
+        });
+        return options;
+    }
+    return createOptionsRecursive(attribute, items, options);
 }
 
 function valueMap(attribute, items, fn) {

@@ -91,7 +91,6 @@ const combinedReducers = combineReducers({
 
 export default function reducer(state = {}, action = {}) {
     const compiledState = combinedReducers(state, action);
-
     if (action.type == UPDATE_SUBJECTS || action.type == INIT) {
         const { filterFns, optionGroups } =
             buildOptionsList(
