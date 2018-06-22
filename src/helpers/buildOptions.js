@@ -20,7 +20,7 @@ export function getFrequencyOfUniqueValues(attribute, items) {
     function createOptionsRecursive(attribute, items, options){
         items.forEach(item => {
             let value = item[attribute];
-            options[value] = options[value] || 0;
+            if(value) options[value] = options[value] || 0;
             if(Array.isArray(value)) createOptionsRecursive(attribute, value, options)
             else if(value) options[value]++
         });
