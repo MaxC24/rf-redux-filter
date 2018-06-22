@@ -25,7 +25,7 @@
     "redux",
     "filter"
   ],
-  "author": "Nathanael Smith",
+  "author": "Massimo Crapanzano",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nsmith7989/redux-filter/issues"
