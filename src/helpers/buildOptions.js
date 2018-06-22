@@ -21,8 +21,8 @@ export function getFrequencyOfUniqueValues(attribute, items) {
         items.forEach(item => {
             let value = item[attribute];
             if(value) options[value] = options[value] || 0;
-            if(Array.isArray(value)) createOptionsRecursive(attribute, value, options)
-            else if(value) options[value]++
+            if(Array.isArray(value)) createOptionsRecursive(attribute, value, options);
+            else if(value) options[value]++;
         });
         return options;
     }
@@ -168,8 +168,7 @@ function getUniqueValues(configValue, items, sortFn) {
 }
 
 export function buildOptionsList(items, criteria, sortOptions) {
-
-    return criteria.reduce((acc, crit) => {
+    let obj =  criteria.reduce((acc, crit) => {
 
         const {values, filterFns} = getUniqueValues(crit, items, sortOptions[crit.attribute]);
 
@@ -180,7 +179,8 @@ export function buildOptionsList(items, criteria, sortOptions) {
                 ...filterFns
             }
         };
-
+        
     }, {});
+    return obj;
 
 }

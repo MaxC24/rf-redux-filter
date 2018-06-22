@@ -19,12 +19,10 @@ function keywordFilter(items, searchText, keys, searchThreshold) {
 
 
 function filter(appliedFilters, collection, functions) {
-
     return collection.filter(item => {
 
         if (!Object.keys(appliedFilters).length) return true;
-
-        return Object.keys(appliedFilters).every(key => {
+        return Object.keys(appliedFilters).some(key => {
             return appliedFilters[key].some(value => {
                 const fn = functions[key + '__' + value];
                 return (typeof fn === 'function') ? fn(item) : false;
