@@ -1,4 +1,9 @@
 # Redux Filter
+
+This is a different version for Nathanael Smith redux-filter module
+with an ORs Filter condition rather than ANDs.
+Original: https://github.com/nsmith7989/redux-filter"
+
 [![Build Status](https://travis-ci.org/nsmith7989/redux-filter.svg?branch=master)](https://travis-ci.org/nsmith7989/redux-filter)
 [![Coverage Status](https://coveralls.io/repos/nsmith7989/redux-filter/badge.svg?branch=master&service=github)](https://coveralls.io/github/nsmith7989/redux-filter?branch=master)
 
